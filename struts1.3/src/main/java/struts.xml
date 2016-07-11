@@ -1,0 +1,16 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+   "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <package name="default" extends="struts-default">
+        <action name="paso1">
+            <result>/paso1.jsp</result>
+        </action>
+        <action name="paso2" class="com.mycompany.struts1.paso2Action">
+            <result>/paso2.jsp</result>
+        </action>
+    </package>
+    
+</struts>
