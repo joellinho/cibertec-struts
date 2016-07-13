@@ -5,13 +5,27 @@
 <struts>
     <constant name="struts.devMode" value="true" />
     <package name="default" extends="struts-default">
-        <action name="init" class="com.mycompany.struts1.loginAction"
-        method="init">
-            <result>/login.jsp</result>
+        
+        <interceptors>
+           <interceptor name="RangoHoraInterceptor"  class="com.mycompany.struts.interceptor.RangoHoraInterceptor">
+            </interceptor>
+
+
+            <interceptor-stack name="horarioStack">
+                <interceptor-ref name="RangoHoraInterceptor"></interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>     
+            </interceptor-stack>           
+        </interceptors>
+        
+        <action name="registro">         
+            <result>/login.jsp</result>           
         </action>
-        <action name="login" class="com.mycompany.struts1.loginAction" method="login">
+       
+        <action name="login" class="com.mycompany.struts.action.loginAction" method="login">
+            <interceptor-ref name="horarioStack"></interceptor-ref>
             <result>/principal.jsp</result>
             <result name="init">/login.jsp</result>
+            <result name="cerrado">/cerrado.jsp</result>
         </action>
     </package>
     

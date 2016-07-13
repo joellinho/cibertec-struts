@@ -1,13 +1,20 @@
 <%-- 
     Document   : index
-    Created on : 11/07/2016, 11:20:57 PM
+    Created on : 13/07/2016, 09:44:49 AM
     Author     : admin-joel
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<% response.sendRedirect("init");%>
-
-
-
-
-
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <h1>welcome </h1>
+        <p>
+            <a href="registro">ingresa a login</a>
+        </p>
+    </body>
+</html>
