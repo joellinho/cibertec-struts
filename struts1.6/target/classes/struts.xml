@@ -7,12 +7,16 @@
     <package name="default" extends="struts-default">
         
         <interceptors>
-           <interceptor name="RangoHoraInterceptor"  class="com.mycompany.struts.interceptor.RangoHoraInterceptor">
+            <interceptor name="printMsgInterceptor" 
+                                     class="com.mkyong.common.interceptor.PrintMsgInterceptor">
             </interceptor>
-
-
+              <interceptor name="horaInterceptor" 
+                                     class="com.mycompany.struts.interceptor.RangoHoraInterceptor">
+            </interceptor>
+            
             <interceptor-stack name="horarioStack">
-                <interceptor-ref name="RangoHoraInterceptor"></interceptor-ref>
+                <interceptor-ref name="printMsgInterceptor"></interceptor-ref>
+                <interceptor-ref name="horaInterceptor"></interceptor-ref>
                 <interceptor-ref name="defaultStack"></interceptor-ref>     
             </interceptor-stack>           
         </interceptors>

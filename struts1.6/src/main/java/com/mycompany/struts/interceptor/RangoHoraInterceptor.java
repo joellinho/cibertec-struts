@@ -14,28 +14,26 @@ import java.util.Calendar;
  * @author admin-joel
  */
 public class RangoHoraInterceptor implements Interceptor {
-
+    @Override
+    public String intercept(ActionInvocation ai) throws Exception {
+        
+        Calendar c1 = Calendar.getInstance();
+        Integer hora=c1.get(Calendar.HOUR_OF_DAY);
+        
+        if(hora > 9){ return "cerrado";}
+        if(hora < 6){ return "cerrado";}
+        
+        return ai.invoke();
+    }
+    
     @Override
     public void destroy() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+         }
 
     @Override
     public void init() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public String intercept(ActionInvocation invocation) throws Exception {
-        Calendar c1 = Calendar.getInstance();
-        Integer hora = c1.get(Calendar.HOUR_OF_DAY);
-        if (hora > 10) {
-            return "cerrado";
-        }
-        if (hora < 5) {
-            return "cerrado";
-        }
-        return invocation.invoke();
-    }
+    
 
 }
